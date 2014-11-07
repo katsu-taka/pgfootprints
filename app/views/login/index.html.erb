@@ -1,5 +1,5 @@
-<div>
-  <%= image_tag 'loginTop.jpg' %>
+<div class="img">
+  <%= image_tag 'loginTop.jpg', width: 500, hight: 450 %>
 </div>
 
 <p style="color: Red"><%= @error %></p>
@@ -7,43 +7,47 @@
   
   <h2>ログイン</h2>
   <span class="field">
-    <%= label_tag :username, 'ユーザ名' %>：
-    <%= text_field_tag :username, '', size:20 %>
+    <%= label_tag :name, 'ユーザ名' %>：
+    <%= text_field_tag :name, '', size:20 %>
     
-    <%= label_tag :password, 'パスワード' %>：
-    <%= password_field_tag :password, '', size:20 %>
+    <%= label_tag :passwd, 'パスワード' %>：
+    <%= password_field_tag :passwd, '', size:20 %>
   </span>
   
   <!-- ログイン後にリダイレクトすべきアクションを隠しフィールドにセット -->
   <%= hidden_field_tag :referer, flash[:referer] %>
   <%= submit_tag 'ログイン' %>
-  
+<% end %>
   <hr>
-  
+
   <h2>新規登録</h2>
-  <span class="field">
+  
+  <%= form_tag('users#create', method: "post") do |f| %>
+  <span>
     <table>
       <tr>
-        <td><%= label_tag :newusername, 'ユーザ名' %>：</td>
-        <td><%= text_field_tag :newusername, '', size:20 %></td>
+        <div class="field">
+          <td><%= label :user, :name, 'ユーザ名' %>：</td>
+        <td><%= text_field :user, :name, size:20 %></td>
+        </div>
       </tr>
-    
       <tr>
-        <td><%= label_tag :newpassword, 'パスワード' %>：</td>
-        <td><%= password_field_tag :newpassword, '', size:20 %></td>
+        <div class="field">
+          <td><%= label :user, :email, 'Email' %>：</td>
+          <td><%= text_field :user, :email, size:20 %></td>
+        </div>
       </tr>
-      
       <tr>
-        <td><%= label_tag :newemail, 'Email' %>：</td>
-        <td><%= password_field_tag :newemail, '', size:20 %></td>
+        <div class="field">
+          <td><%= label :user, :passwd, 'パスワード' %>：</td>
+          <td><%= password_field :user, :passwd, size:20 %></td>
+        </div>
       </tr>
-      
     </table>
   </span>
   
   <!-- ログイン後にリダイレクトすべきアクションを隠しフィールドにセット -->
   <br />
-  <!-- <%= hidden_field_tag :referer, flash[:referer] %> -->
-  <%= submit_tag 'アカウント登録' %>
   
+  <%= submit_tag 'アカウント登録' %>
 <% end %>
