@@ -7,10 +7,10 @@
   
   <h2>ログイン</h2>
   <span class="field">
-    <%= label_tag :name, 'ユーザ名' %>：
+    <%= label_tag :name, 'ユーザ名' %>
     <%= text_field_tag :name, '', size:20 %>
     
-    <%= label_tag :passwd, 'パスワード' %>：
+    <%= label_tag :passwd, 'パスワード' %>
     <%= password_field_tag :passwd, '', size:20 %>
   </span>
   
@@ -21,25 +21,27 @@
   <hr>
 
   <h2>新規登録</h2>
+  <div class="annotation">※以下項目を入力してください</div>
+  <br />
   
-  <%= form_tag('users#create', method: "post") do |f| %>
+<%= form_tag('users#create', method: "post") do |f| %>
   <span>
-    <table>
+    <table class="table2">
       <tr>
-        <div class="field">
-          <td><%= label :user, :name, 'ユーザ名' %>：</td>
-        <td><%= text_field :user, :name, size:20 %></td>
+        <div class="field_with_errors">
+          <td><%= label :user, :name, 'ユーザ名' %></td>
+          <td><%= text_field :user, :name, size:20 %></td>
         </div>
       </tr>
       <tr>
-        <div class="field">
-          <td><%= label :user, :email, 'Email' %>：</td>
+        <div class="field_with_errors">
+          <td><%= label :user, :email, 'Email' %></td>
           <td><%= text_field :user, :email, size:20 %></td>
         </div>
       </tr>
       <tr>
-        <div class="field">
-          <td><%= label :user, :passwd, 'パスワード' %>：</td>
+        <div class="field_with_errors">
+          <td><%= label :user, :passwd, 'パスワード' %></td>
           <td><%= password_field :user, :passwd, size:20 %></td>
         </div>
       </tr>
@@ -48,6 +50,5 @@
   
   <!-- ログイン後にリダイレクトすべきアクションを隠しフィールドにセット -->
   <br />
-  
   <%= submit_tag 'アカウント登録' %>
 <% end %>

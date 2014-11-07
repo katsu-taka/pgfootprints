@@ -20,3 +20,15 @@ table {
   background-color: #ffe4e1;
   border: double, 5px;
 }
+.annotation{
+  font-size: smaller;
+  font-weight: bold;
+  color: #FF8C00;
+}
+
+.field_with_errors{
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+

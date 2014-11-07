@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   root 'login#index'
   
   resources :users
+  resources :blogs
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
