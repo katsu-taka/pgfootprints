@@ -9,7 +9,9 @@
   <span class="field">
     <%= label_tag :name, 'ユーザ名' %>
     <%= text_field_tag :name, '', size:20 %>
+  </span>
     
+  <span class="field">
     <%= label_tag :passwd, 'パスワード' %>
     <%= password_field_tag :passwd, '', size:20 %>
   </span>
@@ -22,11 +24,10 @@
 
   <h2>新規登録</h2>
   <div class="annotation">※以下項目を入力してください</div>
-  <br />
   
 <%= form_tag('users#create', method: "post") do |f| %>
   <span>
-    <table class="table2">
+    <table class="table2", height="100px", width="300px">
       <tr>
         <div class="field_with_errors">
           <td><%= label :user, :name, 'ユーザ名' %></td>

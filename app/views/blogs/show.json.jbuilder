@@ -1,0 +1,1 @@
+json.extract! @blog, :id, :title, :content, : program, :reference, :created_at, :updated_at

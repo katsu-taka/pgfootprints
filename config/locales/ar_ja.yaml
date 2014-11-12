@@ -1,0 +1,10 @@
+ja:
+  activerecord:
+    models:
+      blog: ブログ
+    attributes:
+      blog:
+        title: タイトル
+        content: 内容
+        program: プログラム
+        reference: 参考URL・参考書籍等

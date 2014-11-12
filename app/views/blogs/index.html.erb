@@ -1,1 +1,38 @@
 <h1>Blog Top</h1>
+
+<table bgcolor="#ffffff" border="1" width=75% %>
+	
+<thead>
+    <tr>
+      <th>ユーザID</th>
+      <th>タイトル</th>
+      <th>内容</th>
+      <th>プログラム</th>
+      <th>参考URL</th>
+      <th colspan="5"></th>
+    </tr>
+  </thead>
+  
+  <!-- 全ブログ情報を一覧表示 -->
+  <tbody>
+    <% @blogs.each do |blog| %>
+      <tr>
+        <td><%= blog.userid %></td>
+        <td><%= blog.title %></td>
+        <td><%= blog.content %></td>
+        <td><%= blog.program %></td>
+        <td><%= blog.reference %></td>
+        
+        <!-- 以下は要修正 -->
+        <td><%= link_to '参照', blog %></td>
+        <td><%= link_to '更新', edit_blog_path(blog) %></td>
+        <td><%= link_to '削除', blog, method: :delete, data: { confirm: '削除しますがよろしいですか?' } %></td>
+        
+      </tr>
+    <% end %>
+  </tbody>
+  
+</table>
+
+<br />
+<%= link_to 'New Blog', new_blog_path %>

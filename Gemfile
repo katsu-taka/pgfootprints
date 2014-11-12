@@ -15,7 +15,9 @@ group :development do
   gem 'pry'
   gem 'pry-rails'
   gem 'pry-debugger'
+  gem 'pry-byebug'
   gem 'pry-doc'
+  gem 'simple_form'
 end
 group :production do
   gem 'pg'

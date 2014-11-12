@@ -1,12 +1,8 @@
 class User < ActiveRecord::Base
   # 各項目の入力確認
-  validates :name, 
-    presence: true, 
-    uniqueness: true
-  validates :email,
-    presence:true
-  validates :passwd,
-    presence:true
+  validates :name, presence: true, uniqueness: true
+  validates :email, presence:true
+  validates :passwd, presence:true
   
   # ユーザ登録情報確認
   def self.authenticate(name, passwd)

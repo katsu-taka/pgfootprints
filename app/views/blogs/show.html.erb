@@ -1,0 +1,61 @@
+<div class="page-header">
+  <h1>
+    <%= @blog.title %>
+  </h1>
+</div>
+
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <div class="text-left">
+       タイトル
+    </div>
+  </div>
+  <div class="panel-body">
+    <div class="text-left">
+      <%= @blog.title %>
+    </div>
+  </div>
+</div>
+
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <div class="text-left">
+      内容
+    </div>
+  </div>
+  <div class="panel-body">
+    <div class="text-left">
+      <%= @blog.content %>
+    </div>
+  </div>
+</div>
+
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <div class="text-left">
+      プログラム
+    </div>
+  </div>
+  <div class="panel-body">
+    <div class="text-left">
+      <%= @blog.program %>
+    </div>
+  </div>
+</div>
+
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <div class="text-left">
+      参考URL・参考書籍等
+    </div>
+  </div>
+  <div class="panel-body">
+    <div class="text-left">
+      <%= @blog.reference %>
+    </div>
+  </div>
+</div>
+
+<br />
+<%= link_to '編集', edit_blog_path(@blog) %> |
+<%= link_to '戻る', blogs_path %>
