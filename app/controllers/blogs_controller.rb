@@ -1,10 +1,12 @@
 class BlogsController < ApplicationController
   
   before_action :set_blog, only: [:show, :edit, :update, :destroy]
+  PER = 3
   
   # GET /blogs(.json)
   def index
-    @blogs = Blog.all
+    # @blogs = Blog.all
+    @blogs = Blog.page(params[:page]).per(PER)
   end
   
   # GET /blogs/1(.json)
@@ -23,37 +25,42 @@ class BlogsController < ApplicationController
   # POST /blogs(.json)
   def create
     @blog = Blog.new(blog_params)
-    respond_to do |format|
+    # respond_to do |format|
       if @blog.save
-        format.html { redirect_to @blog, notice: 'Blog was successfully created.' }
-        format.json { render :show, status: :created, location: @blog }
+        # format.html { redirect_to @blog, notice: 'Blog was successfully created.' }
+        # format.json { render :show, status: :created, location: @blog }
+        redirect_to @blog, notice: 'Blog was successfully created.'
       else
-        format.html { render template: "" }
-        format.json { render json: @blog.errors, status: :unprocessable_entity }
+        # format.html { render template: "" }
+        # format.json { render json: @blog.errors, status: :unprocessable_entity }
+        render template: ""
       end
-    end
+    # end
   end
   
   # PATCH/PUT /blogs/1(.json)
   def update
-    respond_to do |format|
+    # respond_to do |format|
       if @blog.update(blog_params)
-        format.html { redirect_to @blog, notice: 'Blog was successfully updated.' }
-        format.json { render :show, status: :ok, location: @blog }
+        # format.html { redirect_to @blog, notice: 'Blog was successfully updated.' }
+        # format.json { render :show, status: :ok, location: @blog }
+        redirect_to @blog, notice: 'Blog was successfully updated.'
       else
-        format.html { render :edit }
-        format.json { render json: @blog.errors, status: :unprocessable_entity }
+        # format.html { render :edit }
+        # format.json { render json: @blog.errors, status: :unprocessable_entity }
+        render :edit
       end
-    end
+    # end
   end
   
   # DELETE /blogs/1(.json)
   def destroy
     @blog.destroy
-    respond_to do |format|
-      format.html { redirect_to blogs_url, notice: 'BLog was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    # respond_to do |format|
+      # format.html { redirect_to blogs_url, notice: 'BLog was successfully destroyed.' }
+      # format.json { head :no_content }
+      redirect_to blogs_url, notice: 'BLog was successfully destroyed.'
+    # end
   end
   
   private

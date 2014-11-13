@@ -1,55 +1,59 @@
 <div class="img">
-  <%= image_tag 'loginTop.jpg', width: 500, hight: 450 %>
+  <%= image_tag 'loginTop.jpg', width: 500, hight: 300 %>
 </div>
 
-<p style="color: Red"><%= @error %></p>
+<hr />
+<p class="bg-danger", style="color: Red"><%= @error %></p>
+  
 <%= form_tag action: :auth do %>
   
   <h2>ログイン</h2>
-  <span class="field">
-    <%= label_tag :name, 'ユーザ名' %>
+  <span class="form-group">
+    <%= label_tag :name, '名前' %>
     <%= text_field_tag :name, '', size:20 %>
   </span>
-    
-  <span class="field">
-    <%= label_tag :passwd, 'パスワード' %>
+  
+  <span class="form-group">
+    <%= label_tag :passwd, '　パスワード' %>
     <%= password_field_tag :passwd, '', size:20 %>
   </span>
   
   <!-- ログイン後にリダイレクトすべきアクションを隠しフィールドにセット -->
   <%= hidden_field_tag :referer, flash[:referer] %>
-  <%= submit_tag 'ログイン' %>
+
+  <%= submit_tag 'ログイン',class: 'btn btn-primary btn-sm', data: { disable_with: 'ログイン中…' } %>
 <% end %>
   <hr>
 
   <h2>新規登録</h2>
-  <div class="annotation">※以下項目を入力してください</div>
   
-<%= form_tag('users#create', method: "post") do |f| %>
-  <span>
+  <div class="annotation">※アカウントを取得されていない方は、以下項目を入力してください</div>
+  
+  <%= form_tag('users#create', method: "post") do %>
     <table class="table2", height="100px", width="300px">
       <tr>
-        <div class="field_with_errors">
+        <div class="form-group">
           <td><%= label :user, :name, 'ユーザ名' %></td>
           <td><%= text_field :user, :name, size:20 %></td>
         </div>
       </tr>
+      
       <tr>
-        <div class="field_with_errors">
+        <div class="form-group">
           <td><%= label :user, :email, 'Email' %></td>
           <td><%= text_field :user, :email, size:20 %></td>
         </div>
       </tr>
+      
       <tr>
-        <div class="field_with_errors">
+        <div class="form-group">
           <td><%= label :user, :passwd, 'パスワード' %></td>
           <td><%= password_field :user, :passwd, size:20 %></td>
         </div>
       </tr>
     </table>
-  </span>
   
-  <!-- ログイン後にリダイレクトすべきアクションを隠しフィールドにセット -->
-  <br />
-  <%= submit_tag 'アカウント登録' %>
-<% end %>
+    <!-- ログイン後にリダイレクトすべきアクションを隠しフィールドにセット -->
+    <%= submit_tag 'アカウント登録', class: 'btn btn-primary btn-sm', data: { disable_with: '登録中…' } %>
+  <% end %>
+  <hr />

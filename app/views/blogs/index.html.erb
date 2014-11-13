@@ -1,10 +1,13 @@
-<h1>Blog Top</h1>
+<div class="page-header"></div>
+  <h1>ブログ一覧</h1>
+</div>
+<br />
 
-<table bgcolor="#ffffff" border="1" width=75% %>
-	
-<thead>
+<div class="panel panel-default">
+  <table class="table">
+    <thead>
     <tr>
-      <th>ユーザID</th>
+      <th>ID</th>
       <th>タイトル</th>
       <th>内容</th>
       <th>プログラム</th>
@@ -17,7 +20,7 @@
   <tbody>
     <% @blogs.each do |blog| %>
       <tr>
-        <td><%= blog.userid %></td>
+        <td><%= blog.id %></td>
         <td><%= blog.title %></td>
         <td><%= blog.content %></td>
         <td><%= blog.program %></td>
@@ -31,8 +34,11 @@
       </tr>
     <% end %>
   </tbody>
-  
-</table>
+  </table>
+ </div>
+  <%= link_to 'New Blog', new_blog_path %>
+  <br />
+  <%= paginate @blogs %>
 
-<br />
-<%= link_to 'New Blog', new_blog_path %>
+
+

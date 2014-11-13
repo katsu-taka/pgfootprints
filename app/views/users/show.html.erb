@@ -1,1 +1,49 @@
 <h1>ユーザ登録情報</h1>
+
+<div class="page-header">
+  <h2>
+    <%= @user.name %>
+  </h2>
+</div>
+
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <div class="text-left">
+       名前
+    </div>
+  </div>
+  <div class="panel-body">
+    <div class="text-left">
+      <%= @user.name %>
+    </div>
+  </div>
+</div>
+
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <div class="text-left">
+       Eメール
+    </div>
+  </div>
+  <div class="panel-body">
+    <div class="text-left">
+      <%= @user.email %>
+    </div>
+  </div>
+</div>
+
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <div class="text-left">
+       パスワード
+    </div>
+  </div>
+  <div class="panel-body">
+    <div class="text-left">
+      <%= @user.passwd %>
+    </div>
+  </div>
+</div>
+
+<%= link_to '編集', edit_user_path(@user) %> |
+<%= link_to '戻る', users_path %>

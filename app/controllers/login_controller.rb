@@ -8,10 +8,9 @@ class LoginController < ApplicationController
   
   # ログインチェック
   def auth
-    
+    # binding.pry
     usr = User.authenticate(params[:name], params[:passwd])
     # binding.pry
-    # puts 'pry-sample'
     if usr then
       # 成功した場合はid値をセッションに設定し、もともとの要求ページにリダイレクト
       # セッション情報を削除
@@ -27,10 +26,5 @@ class LoginController < ApplicationController
     
   end
   
-  # private
-    # # 新規作成
-    # def new_act
-      # @user = User.new
-    # end
     
 end
