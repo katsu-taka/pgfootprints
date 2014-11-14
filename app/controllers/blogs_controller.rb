@@ -1,7 +1,7 @@
 class BlogsController < ApplicationController
   
   before_action :set_blog, only: [:show, :edit, :update, :destroy]
-  PER = 3
+  PER = 5
   
   # GET /blogs(.json)
   def index
@@ -25,15 +25,11 @@ class BlogsController < ApplicationController
   # POST /blogs(.json)
   def create
     @blog = Blog.new(blog_params)
-    # respond_to do |format|
       if @blog.save
-        # format.html { redirect_to @blog, notice: 'Blog was successfully created.' }
-        # format.json { render :show, status: :created, location: @blog }
         redirect_to @blog, notice: 'Blog was successfully created.'
       else
-        # format.html { render template: "" }
-        # format.json { render json: @blog.errors, status: :unprocessable_entity }
-        render template: ""
+        # render template: ""
+        render :new
       end
     # end
   end
@@ -42,12 +38,8 @@ class BlogsController < ApplicationController
   def update
     # respond_to do |format|
       if @blog.update(blog_params)
-        # format.html { redirect_to @blog, notice: 'Blog was successfully updated.' }
-        # format.json { render :show, status: :ok, location: @blog }
         redirect_to @blog, notice: 'Blog was successfully updated.'
       else
-        # format.html { render :edit }
-        # format.json { render json: @blog.errors, status: :unprocessable_entity }
         render :edit
       end
     # end

@@ -29,6 +29,8 @@ group :development do
   # gem 'twitter-bootstrap-rails', '~> 2.2.8'
   # gem 'font-awesome-rails'
   gem 'bootstrap-sass', '2.3.2.0'
+  
+  gem 'syntax-highlighter-rails', '~> 3.0.83.1.1'
 end
 group :production do
   gem 'pg'

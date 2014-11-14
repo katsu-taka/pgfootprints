@@ -7,18 +7,53 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  
+  <script type="text/javascript" src="/scripts/XRegExp.js"></script>
+  <script type="text/javascript" src="/scripts/shCore.js"></script>
+  <script type="text/javascript" src="/scripts/shAutoloader.js"></script>
+  <link type="text/css" rel="stylesheet" href="/styles/shCore.css"/>
+  <link type="text/css" rel="Stylesheet" href="/styles/shThemeDefault.css" />
+  
+  
+    
 </head>
 <body>
-	<% flash.each do |name, msg| %>
-  <div class="alert alert-<%= name == "notice" ? "success" : "error" %>">
-    <a class="close" data-dismiss="alert">×</a> <!-- アラートダイアログに×ボタンをつける -->
-    <%= msg %>
-  </div>
-<% end %>
+  <% flash.each do |name, msg| %>
+    <div class="alert alert-<%= name == "notice" ? "success" : "error" %>">
+      <a class="close" data-dismiss="alert">×</a> <!-- アラートダイアログに×ボタンをつける -->
+      <%= msg %>
+    </div>
+  <% end %>
 
   <div class="container">
     <%= yield %>
   </div>
+  
+  <script type="text/javascript">
+    SyntaxHighlighter.autoloader(
+        'bash shell ../scripts/shBrushBash.js',
+        'cpp c ../scripts/shBrushCpp.js',
+        'c# c-sharp csharp ../scripts/shBrushCSharp.js',
+        'css ../scripts/shBrushCss.js',
+        'delphi pascal ../scripts/shBrushDelphi.js',
+        'diff patch pas ../scripts/shBrushDiff.js',
+        'erl erlang ../scripts/shBrushErlang.js',
+        'groovy ../scripts/shBrushGroovy.js',
+        'java ../scripts/shBrushJava.js',
+        'js jscript javascript ../scripts/shBrushJScript.js',
+        'perl pl ../scripts/shBrushPerl.js',
+        'php ../scripts/shBrushPhp.js',
+        'text plain ../scripts/shBrushPlain.js',
+        'py python ../scripts/shBrushPython.js',
+        'ruby rails ror rb ../scripts/shBrushRuby.js',
+        'scala ../scripts/shBrushScala.js',
+        'sql ../scripts/shBrushSql.js',
+        'vb vbnet ../scripts/shBrushVb.js',
+        'xml xhtml xslt html ../scripts/shBrushXml.js'
+      );
+    SyntaxHighlighter.config.bloggerMode=true;
+    SyntaxHighlighter.all();
+  </script>
 
 </body>
 </html>

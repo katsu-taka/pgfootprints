@@ -1,12 +1,13 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  PER = 2
   
-  # GET /users(.json)
+  # GET /users
   def index
-    @users = User.all
+    @users = User.page(params[:page]).per(PER)
   end
   
-  # GET /users/1(.json)
+  # GET /users/1
   def show
   end
   
@@ -20,44 +21,29 @@ class UsersController < ApplicationController
   def edit
   end
   
-  # POST /users(.json)
+  # POST /users
   def create
     @user = User.new(user_params)
       if @user.save
-        # format.html { redirect_to @user, notice: 'User was successfully created.' }
-        # format.html { redirect_to blogs_path, notice: 'User was successfully created.' }
-        # format.json { render :show, status: :created, location: @user }
         redirect_to blogs_path, notice: 'ユーザを登録しました'
       else
-        # format.html { render template: "login/index.html.erb" }
-        # format.json { render json: @user.errors, status: :unprocessable_entity }
         render template: "login/index.html.erb"
     end
   end
   
-  # PATCH/PUT /users/1(.json)
+  # PATCH/PUT /users/1
   def update
-    # respond_to do |format|
       if @user.update(user_params)
-        # format.html { redirect_to @user, notice: 'User was successfully updated.' }
-        # format.json { render :show, status: :ok, location: @user }
         redirect_to @user, notice: 'User was successfully updated.'
       else
-        # format.html { render :edit }
-        # format.json { render json: @user.errors, status: :unprocessable_entity }
         render :edit
       end
-    # end
   end
   
-  # DELETE /users/1(.json)
+  # DELETE /users/1
   def destroy
     @user.destroy
-    # respond_to do |format|
-      # format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
-      # format.json { head :no_content }
-      redirect_to users_url, notice: 'User was successfully destroyed.'
-    # end
+    redirect_to users_url, notice: 'User was successfully destroyed.'
   end
   
   private

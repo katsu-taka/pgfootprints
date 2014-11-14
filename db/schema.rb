@@ -16,8 +16,8 @@ ActiveRecord::Schema.define(version: 20141031070451) do
   create_table "blogs", force: true do |t|
     t.string   "title",      null: false
     t.string   "content"
-    t.string   "program"
-    t.string   "reference"
+    t.binary   "program"
+    t.binary   "reference"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "userid"

@@ -7,38 +7,32 @@
   <table class="table">
     <thead>
     <tr>
-      <th>ID</th>
+      <th>No</th>
       <th>タイトル</th>
       <th>内容</th>
-      <th>プログラム</th>
-      <th>参考URL</th>
-      <th colspan="5"></th>
+      <th colspan="3"></th>
     </tr>
   </thead>
   
   <!-- 全ブログ情報を一覧表示 -->
   <tbody>
+    <% i = 1 %>
     <% @blogs.each do |blog| %>
       <tr>
-        <td><%= blog.id %></td>
-        <td><%= blog.title %></td>
-        <td><%= blog.content %></td>
-        <td><%= blog.program %></td>
-        <td><%= blog.reference %></td>
+        <td><div class="text-left"><%= i.to_s %></div></td>
+        <td><div class="text-left"><%= blog.title.slice(0, 20) %></div></td>
+        <td><div class="text-left"><%= blog.content.slice(0,50) %></div></td>
         
         <!-- 以下は要修正 -->
         <td><%= link_to '参照', blog %></td>
         <td><%= link_to '更新', edit_blog_path(blog) %></td>
         <td><%= link_to '削除', blog, method: :delete, data: { confirm: '削除しますがよろしいですか?' } %></td>
-        
+        <% i += 1 %>
       </tr>
     <% end %>
   </tbody>
   </table>
- </div>
-  <%= link_to 'New Blog', new_blog_path %>
-  <br />
-  <%= paginate @blogs %>
-
-
-
+</div>
+<%= link_to 'New Blog', new_blog_path %>
+<br />
+<%= paginate @blogs %>
