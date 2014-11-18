@@ -1,0 +1,37 @@
+<div class="page-header"></div>
+  <h1>プロフィール一覧</h1>
+</div>
+<br />
+
+<div class="panel panel-default">
+  <table class="table table-bordered">
+    <thead>
+    <tr>
+      <th>No</th>
+      <th>名前</th>
+      <th>血液型</th>
+      <th>誕生日</th>
+      <th>住所</th>
+      <th colspan="4"></th>
+    </tr>
+    </thead>
+  
+    <!-- 登録情報を一覧表示 -->
+    <tbody>
+      <% i = 1 %>
+      <% @userprofiles.each do |userprofile| %>
+        <tr>
+          <td><div class="text-left"><%= i.to_s %></div></td>
+        <td><div class="text-left"><%= userprofile.name %></div></td>
+        <td><div class="text-left"><%= userprofile.bloodtype %></div></td>
+        <td><div class="text-left"><%= userprofile.birthday %></div></td>
+        <td><div class="text-left"><%= userprofile.address %></div></td>
+        </tr>
+      <% end %>
+    </tbody>
+    
+  </table>
+</div>
+<%= link_to 'プロフィール新規作成', new_userprofile_path %>
+  <br />
+  <%= paginate @userprofiles %>

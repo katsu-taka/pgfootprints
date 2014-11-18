@@ -1,0 +1,55 @@
+<%= form_for(@userprofile, class: 'form-horizontal', role: 'form',multipart: true) do |f| %>
+
+  <% if @userprofile.errors.any? %>
+    <div class="alert alert-danger">
+      <ul>
+        <% @userprofile.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="form-group">
+    <%= f.label :name, class: "col-sm-1 control-label" %>
+    <%= f.text_field :name, class:'form-control' %>
+  </div>
+  
+  <div class="form-group">
+    <%= f.label :photo, class: "col-sm-1 control-label" %>
+    <%= f.file_field :photo, class:'form-control' %>
+  </div>
+  
+  <div class="form-group">
+    <%= f.label :bloodtype, class: "col-sm-1 control-label" %><br />
+    <br />
+    <div class="text-left">
+      <div class="radio-inline">
+        <label><%= f.radio_button :bloodtype, 'A型', class: :blood %> A型 </label>
+      </div>
+      <div class="radio-inline">
+        <label><%= f.radio_button :bloodtype, 'B型', class: :blood %> B型 </label>
+      </div>
+      <div class="radio-inline">
+        <label><%= f.radio_button :bloodtype, 'O型', class: :blood %> O型 </label>
+      </div>
+      <div class="radio-inline">
+        <label><%= f.radio_button :bloodtype, 'AB型', class: :blood %> AB型 </label>
+      </div>
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <%= f.label :birthday, class: "col-sm-1 control-label" %>
+    <div class: "col-sm-10">
+      <%= f.date_field :birthday, class:'form-control' %>
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <%= f.label :address, class: "col-sm-1 control-label" %>
+    <%= f.text_field :address, class:'form-control' %>
+  </div>
+  
+  <%= f.submit '登録', class: 'btn btn-primary btn-sm', data: { disable_with: '登録中…' } %>
+<% end %>

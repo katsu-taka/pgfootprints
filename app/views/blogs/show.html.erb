@@ -6,7 +6,7 @@
 
 <div class="text-right">
   <div class="text-info">
-    <%= @blog.created_at.strftime("%Y/%m/%d %H:%M (#{%w(日 月 火 水 木 金 土)[@blog.created_at.wday]})") %>
+    <%= @blog.created_at.strftime("作成日 ： %Y/%m/%d %H:%M (#{%w(日 月 火 水 木 金 土)[@blog.created_at.wday]})") %>
   </div>
 </div>
 
