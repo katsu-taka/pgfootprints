@@ -9,10 +9,11 @@
     <tr>
       <th>No</th>
       <th>名前</th>
+      <th>写真</th>
       <th>血液型</th>
       <th>誕生日</th>
       <th>住所</th>
-      <th colspan="4"></th>
+      <th colspan="5"></th>
     </tr>
     </thead>
   
@@ -23,9 +24,16 @@
         <tr>
           <td><div class="text-left"><%= i.to_s %></div></td>
         <td><div class="text-left"><%= userprofile.name %></div></td>
+        <td><div class="text-left"><%= userprofile.name %></div></td>
         <td><div class="text-left"><%= userprofile.bloodtype %></div></td>
-        <td><div class="text-left"><%= userprofile.birthday %></div></td>
+        <td><div class="text-left"><%= userprofile.birthday.strftime("%Y/%m/%d") %></div></td>
         <td><div class="text-left"><%= userprofile.address %></div></td>
+        
+        <!-- 以下は要修正 -->
+        <td><%= link_to '参照', userprofile %></td>
+        <td><%= link_to '更新', edit_userprofile_path(userprofile) %></td>
+        <td><%= link_to '削除', userprofile, method: :delete, data: { confirm: '削除しますがよろしいですか?' } %></td>
+        <% i += 1 %>
         </tr>
       <% end %>
     </tbody>

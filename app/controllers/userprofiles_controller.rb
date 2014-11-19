@@ -9,12 +9,12 @@ class UserprofilesController < ApplicationController
   
   # GET /userprofiles/1
   def show
+    @userprofile = Userprofile.find(params[:id])
   end
   
   # GET /userprofiles/new
   def new
     @userprofile = Userprofile.new
-    # render 'blogs/index'
   end
   
   # GET /useprofilers/1/edit
@@ -23,16 +23,8 @@ class UserprofilesController < ApplicationController
   
   # POST /userprofiles
   def create
-    
-    photo = userprofile_params[:photo]
-    userprofile = {}
-    if photo != nil
-      userprofile[:photo] = photo.read
-      # userprofile[:photo] = photo.original_filename
-    end
     # binding.pry
-    # @userprofile = Userprofile.new(userprofile_params)
-    @userprofile = Userprofile.new(userprofile)
+    @userprofile = Userprofile.new(userprofile_params)
     
     if @userprofile.save
       redirect_to blogs_path, notice: 'プロフィールを登録しました'
@@ -56,6 +48,17 @@ class UserprofilesController < ApplicationController
     redirect_to blogs_path, notice: 'プロフィールを削除しました'
   end
   
+  def download
+    @userprofile = Userprofile.find(params[:userprofile_id])
+    # binding.pry
+    send_data(
+      @userprofile.photo,
+      filename: @userprofile.pname,
+      type: @userprofile.ptype,
+      disposition: "inline"
+     )
+  end
+  
   private
     # Useprofile callbacks to share common setup or constraints between actions.
     def set_userprofile
@@ -64,22 +67,7 @@ class UserprofilesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def userprofile_params
-      params.require(:userprofile).permit( :name, :photo, :bloodtype, :birthday, :address )
-      # params.require(:userprofile).permit( :name, :bloodtype, :birthday, :address )
-    end
-    
-    def uploadimg(img_object,photo_name)
-      ext = photo_name[photo_name.rindex('.') + 1, 4].downcase
-      perms = ['.jpg', '.jpeg', '.gif', '.png']
-      if !perms.include?(File.extname(photo_name).downcase)
-        result = 'アップロードできるのは画像ファイルのみです。'
-      elsif img_object.size > 4.megabyte
-        result = 'ファイルサイズは4MBまでです。'
-      else
-        File.open("public/#{photo_name.toutf8}", 'wb') { |f| f.write(img_object.read) }
-        result = "success"
-      end
-      return result
+      params.require(:userprofile).permit( :userid, :name, :photo, :bloodtype, :birthday, :address, :uploaded_picture )
     end
 
 end

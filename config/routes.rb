@@ -5,7 +5,11 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'login#index'
   
-  resources :userprofiles
+  
+  resources :userprofiles do
+    get :download
+  end
+  
   resources :users
   resources :blogs
 

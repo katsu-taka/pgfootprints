@@ -1,4 +1,4 @@
-<%= form_for(@userprofile, class: 'form-horizontal', role: 'form',multipart: true) do |f| %>
+<%= form_for(@userprofile, html: {multipart: true}, class: 'form-horizontal', role: 'form') do |f| %>
 
   <% if @userprofile.errors.any? %>
     <div class="alert alert-danger">
@@ -10,14 +10,17 @@
     </div>
   <% end %>
   
+  <!-- [非表示] ユーザID -->
+  <%= f.hidden_field :userid, value: current_user.id %>
+  
   <div class="form-group">
     <%= f.label :name, class: "col-sm-1 control-label" %>
     <%= f.text_field :name, class:'form-control' %>
   </div>
   
   <div class="form-group">
-    <%= f.label :photo, class: "col-sm-1 control-label" %>
-    <%= f.file_field :photo, class:'form-control' %>
+    <%= f.label :uploaded_picture, class: "col-sm-1 control-label" %>
+    <%= f.file_field :uploaded_picture, class:'form-control' %><br />
   </div>
   
   <div class="form-group">
