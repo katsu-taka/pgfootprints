@@ -3,13 +3,14 @@ class BlogsController < ApplicationController
   before_action :set_blog, only: [:show, :edit, :update, :destroy]
   PER = 5
   
-  # GET /blogs(.json)
+  # GET /blogs
   def index
     # @blogs = Blog.all
     @blogs = Blog.page(params[:page]).per(PER)
+    @users = User.all
   end
   
-  # GET /blogs/1(.json)
+  # GET /blogs/1
   def show
   end
   
@@ -22,13 +23,12 @@ class BlogsController < ApplicationController
   def edit
   end
   
-  # POST /blogs(.json)
+  # POST /blogs
   def create
     @blog = Blog.new(blog_params)
       if @blog.save
-        redirect_to @blog, notice: 'Blog was successfully created.'
+        redirect_to @blog, notice: 'ブログを作成しました'
       else
-        # render template: ""
         render :new
       end
     # end
@@ -36,23 +36,17 @@ class BlogsController < ApplicationController
   
   # PATCH/PUT /blogs/1(.json)
   def update
-    # respond_to do |format|
-      if @blog.update(blog_params)
-        redirect_to @blog, notice: 'Blog was successfully updated.'
-      else
-        render :edit
-      end
-    # end
+    if @blog.update(blog_params)
+      redirect_to @blog, notice: 'ブログを更新しました'
+    else
+      render :edit
+    end
   end
   
   # DELETE /blogs/1(.json)
   def destroy
     @blog.destroy
-    # respond_to do |format|
-      # format.html { redirect_to blogs_url, notice: 'BLog was successfully destroyed.' }
-      # format.json { head :no_content }
-      redirect_to blogs_url, notice: 'BLog was successfully destroyed.'
-    # end
+    redirect_to blogs_url, notice: 'ブログを削除しました'
   end
   
   private

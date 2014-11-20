@@ -7,9 +7,9 @@
   <table class="table table-bordered">
     <thead>
     <tr>
-      <th>No</th>
       <th>タイトル</th>
       <th>内容</th>
+      <th>作成者</th>
       <th>作成日</th>
       <th colspan="4"></th>
     </tr>
@@ -18,11 +18,21 @@
   <!-- 全ブログ情報を一覧表示 -->
   <tbody>
     <% i = 1 %>
+    <% uflg = false %>
     <% @blogs.each do |blog| %>
       <tr>
-        <td><div class="text-left"><%= i.to_s %></div></td>
         <td><div class="text-left"><%= blog.title.slice(0, 20) %></div></td>
         <td><div class="text-left"><%= blog.content.slice(0,50) %></div></td>
+        <% @users.each do |user| %>
+          <% if user.id == blog.userid %>
+            <td><div class="text-left"><%= user.name %></div></td>
+            <% uflg = true %>
+            <% break %>
+          <% end %>
+        <% end %>
+        <% if uflg == false %>
+          <td> </td>
+        <% end %>
         <td><div class="text-left"><%= blog.created_at.strftime("%Y/%m/%d") %></div></td>
         
         <!-- 以下は要修正 -->

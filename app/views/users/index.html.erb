@@ -6,7 +6,6 @@
   <table class="table table-bordered">
     <thead>
     <tr>
-      <th>No</th>
       <th>名前</th>
       <th>Email</th>
       <th>パスワード</th>
@@ -19,7 +18,6 @@
     <% i = 1 %>
     <% @users.each do |user| %>
       <tr>
-        <td><div class="text-left"><%= i.to_s %></div></td>
         <td><div class="text-left"><%= user.name %></div></td>
         <td><div class="text-left"><%= user.email %></div></td>
         <td><div class="text-left"><%= user.passwd %></div></td>

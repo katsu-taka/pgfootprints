@@ -14,10 +14,34 @@
   <link type="text/css" rel="stylesheet" href="/styles/shCore.css"/>
   <link type="text/css" rel="Stylesheet" href="/styles/shThemeDefault.css" />
   
-  
-    
 </head>
 <body>
+  <header class="navbar navbar-inverse" role="navigation">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <% if current_user %>
+          <%= link_to 'Top', blogs_path, class: 'navbar-brand' %>
+        <% else %>
+          <div class="navbar-text">ログイン または ユーザ登録をおこなってくだちぃ</div> 
+        <% end %>
+      </div>
+      
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+          <% if current_user %>
+            <li><div class="navbar-text"><%= current_user.name %> さん</div></li>
+            <li><%= link_to "プロフィール", profile_userprofile_path(current_user.id) %></li>
+            <li><%= link_to "ログアウト", {controller: :login, action: :logout} %></li>
+          <% end %>
+        </ul>
+      </div>
+  </header>
+  
   <% flash.each do |name, msg| %>
     <div class="alert alert-<%= name == "notice" ? "success" : "error" %>">
       <a class="close" data-dismiss="alert">×</a> <!-- アラートダイアログに×ボタンをつける -->

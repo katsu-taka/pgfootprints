@@ -8,11 +8,19 @@ Rails.application.routes.draw do
   
   resources :userprofiles do
     get :download
+    
+    # get :profile
+    member do
+      get :profile
+    end
   end
   
   resources :users
   resources :blogs
-
+  
+  post 'login/auth'
+  get 'login/logout'
+  
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
@@ -61,5 +69,5 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-  match ':controller(/:action(/:id))', via: [ :get, :post, :patch]
+  # match ':controller(/:action(/:id))', via: [ :get, :post, :patch]
 end

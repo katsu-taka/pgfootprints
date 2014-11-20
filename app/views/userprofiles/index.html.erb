@@ -7,10 +7,9 @@
   <table class="table table-bordered">
     <thead>
     <tr>
-      <th>No</th>
       <th>名前</th>
       <th>血液型</th>
-      <th>誕生日</th>
+      <th>誕生日</th>	
       <th>住所</th>
       <th colspan="4"></th>
     </tr>
@@ -21,7 +20,6 @@
       <% i = 1 %>
       <% @userprofiles.each do |userprofile| %>
         <tr>
-          <td><div class="text-left"><%= i.to_s %></div></td>
         <td><div class="text-left"><%= userprofile.name %></div></td>
         <td><div class="text-left"><%= userprofile.bloodtype %></div></td>
         <td><div class="text-left"><%= userprofile.birthday.strftime("%Y/%m/%d") %></div></td>

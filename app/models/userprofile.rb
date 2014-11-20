@@ -1,5 +1,5 @@
 class Userprofile < ActiveRecord::Base
-  belongs_to :user
+  belongs_to :user, foreign_key: "user_id"
   
   def uploaded_picture=(picture_field)
     self.ptype = picture_field.content_type.chomp
