@@ -23,11 +23,16 @@
       <tr>
         <td><div class="text-left"><%= blog.title.slice(0, 20) %></div></td>
         <td><div class="text-left"><%= blog.content.slice(0,50) %></div></td>
-        <% @users.each do |user| %>
-          <% if user.id == blog.userid %>
-            <td><div class="text-left"><%= user.name %></div></td>
-            <% uflg = true %>
-            <% break %>
+        <% if @users %>
+          <% @users.each do |user| %>
+            <% if user.id == blog.user_id %>
+              <td><div class="text-left">
+                <%= user.name %>
+                <%= link_to '▼', user_blogs_path(user) %>
+              </div></td>
+              <% uflg = true %>
+              <% break %>
+            <% end %>
           <% end %>
         <% end %>
         <% if uflg == false %>

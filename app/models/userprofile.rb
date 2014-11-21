@@ -11,8 +11,8 @@ class Userprofile < ActiveRecord::Base
     File.basename(file_name).gsub(/[^\w._-]/,'')
   end
   
-  def self.check_registration(userid)
-    find_by(userid: userid)
+  def self.check_registration(user_id)
+    find_by(user_id: user_id)
   end
   
 end

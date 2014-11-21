@@ -11,7 +11,9 @@
   <% end %>
   
   <!-- [非表示] ユーザID -->
-  <%= f.hidden_field :userid, value: current_user.id %>
+  <div class="field">
+    <%= f.hidden_field :user_id, value: current_user.id %>
+  </div>
   
   <div class="form-group">
     <%= f.label :title, class: "col-sm-1 control-label" %>

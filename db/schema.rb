@@ -14,6 +14,7 @@
 ActiveRecord::Schema.define(version: 20141118032451) do
 
   create_table "blogs", force: true do |t|
+    t.integer  "user_id",    null: false
     t.string   "title",      null: false
     t.string   "content"
     t.binary   "program"
@@ -24,7 +25,7 @@ ActiveRecord::Schema.define(version: 20141118032451) do
   end
 
   create_table "userprofiles", force: true do |t|
-    t.integer  "userid",     null: false
+    t.integer  "user_id",    null: false
     t.string   "name",       null: false
     t.string   "bloodtype"
     t.datetime "birthday"

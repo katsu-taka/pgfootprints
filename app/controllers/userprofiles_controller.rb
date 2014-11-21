@@ -1,9 +1,7 @@
 class UserprofilesController < ApplicationController
   before_action :set_userprofile, only: [:show, :edit, :update, :destroy]
-  # before_action :set_userprofile, only: [:edit, :update, :destroy]
-  # before_action :get_user, only: [:show]
-  before_action :get_user, only: [:profile]
-  PER = 2
+  # before_action :get_user, only: [:profile]
+  PER = 10
   
   # GET /userprofiles
   def index
@@ -12,9 +10,6 @@ class UserprofilesController < ApplicationController
   
   # GET /userprofiles/1
   def show
-    # @userprofile = Userprofile.find(params[:id])
-    # @userprofile = Userprofile.find(params[:userid])
-    # binding.pry
   end
   
   # GET /userprofiles/new
@@ -67,6 +62,8 @@ class UserprofilesController < ApplicationController
   end
   
   def profile
+    @userprofile = Userprofile.find_by user_id: params[:id]
+    render :show
   end
 
   private
@@ -77,13 +74,13 @@ class UserprofilesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def userprofile_params
-      params.require(:userprofile).permit( :userid, :name, :photo, :bloodtype, :birthday, :address, :uploaded_picture )
+      params.require(:userprofile).permit( :user_id, :name, :photo, :bloodtype, :birthday, :address, :uploaded_picture )
     end
     
     # useridをキーにユーザ情報取得
-    def get_user
-     @userprofile = Userprofile.find_by userid: params[:id]
-     render :show
-    end
+    # def get_user
+     # @userprofile = Userprofile.find_by userid: params[:id]
+     # render :show
+    # end
 
 end

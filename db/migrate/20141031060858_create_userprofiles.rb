@@ -1,7 +1,7 @@
 class CreateUserprofiles < ActiveRecord::Migration
   def change
     create_table :userprofiles do |t|
-      t.integer :userid, null: false
+      t.references :user, null: false
       t.string :name, null: false
       t.string :bloodtype
       t.datetime :birthday

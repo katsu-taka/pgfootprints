@@ -2,7 +2,7 @@
   <h2>
     <%= @userprofile.name %>
   </h2>
-  <h4><%= link_to '登録情報', user_path(@userprofile.userid) %></h4>
+  <h4><%= link_to '登録情報', user_path(@userprofile.user_id) %></h4>
 </div>
 
 <%= link_to '編集', edit_userprofile_path(@userprofile) %> |

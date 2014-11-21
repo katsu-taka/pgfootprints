@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  PER = 2
+  PER = 10
   
   # GET /users
   def index

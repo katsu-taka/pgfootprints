@@ -1,13 +1,19 @@
 class BlogsController < ApplicationController
   
   before_action :set_blog, only: [:show, :edit, :update, :destroy]
-  PER = 5
+  PER = 10
   
   # GET /blogs
   def index
     # @blogs = Blog.all
-    @blogs = Blog.page(params[:page]).per(PER)
-    @users = User.all
+    if params[:user_id]
+      @user = User.find(params[:user_id])
+      @blogs = @user.blogs.page(params[:page]).per(PER)
+      
+    else
+      @blogs = Blog.page(params[:page]).per(PER)
+      @users = User.all
+    end
   end
   
   # GET /blogs/1
@@ -57,7 +63,7 @@ class BlogsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def blog_params
-      params.require(:blog).permit( :userid, :title, :content, :program, :reference )
+      params.require(:blog).permit( :user_id, :title, :content, :program, :reference )
     end
     
 end

@@ -15,8 +15,11 @@ Rails.application.routes.draw do
     end
   end
   
-  resources :users
   resources :blogs
+  
+  resources :users do
+    resources :blogs, only: [:index]
+  end
   
   post 'login/auth'
   get 'login/logout'
