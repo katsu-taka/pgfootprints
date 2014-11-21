@@ -4,6 +4,20 @@
   </h2>
 </div>
 
+<%= link_to '編集', edit_user_path(@user) %> |
+<%= link_to '戻る', blogs_path %>
+
+<div class="text-right">
+  <div class="text-info">
+    <%= @user.created_at.strftime("作成日 ： %Y/%m/%d %H:%M (#{%w(日 月 火 水 木 金 土)[@user.created_at.wday]})") %>
+  </div>
+</div>
+<div class="text-right">
+  <div class="text-info">
+    <%= @user.updated_at.strftime("更新日 ： %Y/%m/%d %H:%M (#{%w(日 月 火 水 木 金 土)[@user.created_at.wday]})") %>
+  </div>
+</div>
+
 <div class="panel panel-primary">
   <div class="panel-heading">
     <div class="text-left">
@@ -42,6 +56,3 @@
     </div>
   </div>
 </div>
-
-<%= link_to '編集', edit_user_path(@user) %> |
-<%= link_to '戻る', blogs_path %>

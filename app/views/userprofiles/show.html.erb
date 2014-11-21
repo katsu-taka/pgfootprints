@@ -5,9 +5,17 @@
   <h4><%= link_to '登録情報', user_path(@userprofile.userid) %></h4>
 </div>
 
+<%= link_to '編集', edit_userprofile_path(@userprofile) %> |
+<%= link_to '戻る', blogs_path %>
+
 <div class="text-right">
   <div class="text-info">
     <%= @userprofile.created_at.strftime("作成日 ： %Y/%m/%d %H:%M (#{%w(日 月 火 水 木 金 土)[@userprofile.created_at.wday]})") %>
+  </div>
+</div>
+<div class="text-right">
+  <div class="text-info">
+    <%= @userprofile.updated_at.strftime("更新日 ： %Y/%m/%d %H:%M (#{%w(日 月 火 水 木 金 土)[@userprofile.created_at.wday]})") %>
   </div>
 </div>
 
@@ -64,6 +72,3 @@
   </div>
   
 </div>
-
-<%= link_to '編集', edit_userprofile_path(@userprofile) %> |
-<%= link_to '戻る', blogs_path %>

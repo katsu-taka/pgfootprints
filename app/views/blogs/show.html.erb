@@ -4,6 +4,9 @@
   </h1>
 </div>
 
+<%= link_to '編集', edit_blog_path(@blog) %> |
+<%= link_to '戻る', blogs_path %>
+
 <div class="text-right">
   <div class="text-info">
     <%= @blog.created_at.strftime("作成日 ： %Y/%m/%d %H:%M (#{%w(日 月 火 水 木 金 土)[@blog.created_at.wday]})") %>
@@ -65,6 +68,3 @@
   </div>
 </div>
 
-<br />
-<%= link_to '編集', edit_blog_path(@blog) %> |
-<%= link_to '戻る', blogs_path %>
