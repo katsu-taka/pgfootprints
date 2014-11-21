@@ -35,7 +35,11 @@
         <ul class="nav navbar-nav navbar-right">
           <% if current_user %>
             <li><div class="navbar-text"><%= current_user.name %> さん</div></li>
-            <li><%= link_to "プロフィール", profile_userprofile_path(current_user.id) %></li>
+            <% if Userprofile.check_registration(current_user.id) %>
+              <li><%= link_to "プロフィール", profile_userprofile_path(current_user.id) %></li>
+            <% else %>
+              <li><%= link_to "プロフィール", new_userprofile_path %></li>
+            <% end %>
             <li><%= link_to "ログアウト", {controller: :login, action: :logout} %></li>
           <% end %>
         </ul>
