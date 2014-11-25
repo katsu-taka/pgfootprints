@@ -1,28 +1,9 @@
-== README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Bootstrap [v3.3.1]
+　http://getbootstrap.com/
+SyntaxHighlighter [v3.0.83]
+　http://alexgorbatchev.com/SyntaxHighlighter/
+			
+Ruby [v2.0.0] (x64-mingw32)
+Ruby on Rails [v4.1.6]
+Node.js [v0.10.32]
