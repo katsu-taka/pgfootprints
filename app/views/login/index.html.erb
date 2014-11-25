@@ -2,7 +2,7 @@
   <%= image_tag 'loginTop.jpg', width: 300, hight: 200 %>
 </div>
 
-<p class="bg-danger", style="color: Red"><%= @emsg %></p>
+<p class="bg-danger", style="color: #a94442"><%= @emsg %></p>
 <%= form_tag controller: :login, action: :auth do %>
   <div class="bg-info">
     <h2>ログイン</h2>
@@ -28,7 +28,6 @@
   <div class="annotation">※アカウントを取得されていない方は、以下項目を入力してください</div>
   
 <%= form_tag(@user ,url: {controller: :users, action: :create}) do %>
-
   <% if @user.errors.any? %>
     <div class="alert alert-danger">
       <ul>

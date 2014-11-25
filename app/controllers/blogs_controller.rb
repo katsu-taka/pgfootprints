@@ -1,5 +1,6 @@
 class BlogsController < ApplicationController
   
+  before_action :check_logined
   before_action :set_blog, only: [:show, :edit, :update, :destroy]
   PER = 10
   

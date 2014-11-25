@@ -1,4 +1,5 @@
 class UserprofilesController < ApplicationController
+  before_action :check_logined, except: [:create, :new]
   before_action :set_userprofile, only: [:show, :edit, :update, :destroy]
   # before_action :get_user, only: [:profile]
   PER = 10

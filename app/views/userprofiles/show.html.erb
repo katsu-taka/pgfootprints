@@ -43,7 +43,11 @@
       </div>
       <div class="panel-body">
         <div class="text-left">
-          <%= @userprofile.birthday.strftime("%Y/%m/%d") %>
+          <% if @userprofile.birthday %>
+            <%= @userprofile.birthday.strftime("%Y/%m/%d") %>
+          <% else %>
+            <%= " " %>
+          <% end %>
         </div>
       </div>
     </div>

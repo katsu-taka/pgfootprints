@@ -16,25 +16,33 @@
   </div>
   
   <div class="form-group">
-    <%= f.label :title, class: "col-sm-1 control-label" %>
+    <div class="text-left">
+      <%= f.label "タイトル", class: "col-sm-1 control-label" %>
+    </div>
     <%= f.text_field :title, class:'form-control' %>
   </div>
   
   <div class="form-group">
-    <%= f.label :content, class: "col-sm-1 control-label" %>
+    <div class="text-left">
+      <%= f.label "内容", class: "col-sm-1 control-label" %>
+    </div>
     <%= f.text_area :content, class:'form-control', size: "x5" %>
   </div>
   
   
   <div class="form-group">
-    <%= f.label :program, class: "col-sm-1 control-label" %>
+    <div class="text-left">
+      <%= f.label "プログラム", class: "col-sm-1 control-label" %>
+    </div>
     <%= f.text_area :program, class:'form-control', size: "x8" %>
   </div>
   
   
   <div class="form-group">
-    <%= f.label :reference, class: "col-sm-1 control-label" %>
-    <%= f.text_field :reference, class:'form-control' %>
+    <div class="text-left">
+      <%= f.label "参考URL・参考書籍等", class: "col-sm-2 control-label" %>
+    </div>
+    <%= f.text_area :reference, class:'form-control', size: "x3" %>
   </div>
   
   

@@ -22,7 +22,13 @@
         <tr>
         <td><div class="text-left"><%= userprofile.name %></div></td>
         <td><div class="text-left"><%= userprofile.bloodtype %></div></td>
-        <td><div class="text-left"><%= userprofile.birthday.strftime("%Y/%m/%d") %></div></td>
+        <td><div class="text-left">
+          <% if userprofile.birthday %>
+            <%= userprofile.birthday.strftime("%Y/%m/%d") %>
+          <% else %>
+            <%= " " %>
+          <% end %>
+        </div></td>
         <td><div class="text-left"><%= userprofile.address.slice(0, 20) %></div></td>
         
         <!-- 以下は要修正 -->

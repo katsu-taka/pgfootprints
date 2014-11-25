@@ -11,17 +11,23 @@
   <% end %>
   
   <div class="form-group">
-    <%= f.label :name, class: "col-sm-1 control-label" %>
+    <div class="text-left">
+      <%= f.label "名前", class: "col-sm-1 control-label" %>
+    </div>
     <%= f.text_field :name, class:'form-control' %>
   </div>
   
   <div class="form-group">
-    <%= f.label :email, class: "col-sm-1 control-label" %>
+    <div class="text-left">
+      <%= f.label "Eメール", class: "col-sm-1 control-label" %>
+    </div>
     <%= f.text_field :email, class:'form-control' %>
   </div>
   
   <div class="form-group">
-    <%= f.label :passwd, class: "col-sm-1 control-label" %>
+    <div class="text-left">
+      <%= f.label "パスワード", class: "col-sm-1 control-label" %>
+    </div>
     <%= f.text_field :passwd, class:'form-control' %>
   </div>
   
