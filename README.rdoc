@@ -1,8 +1,8 @@
 
 Bootstrap [v3.3.1]
-　http://getbootstrap.com/
+ http://getbootstrap.com/
 SyntaxHighlighter [v3.0.83]
-　http://alexgorbatchev.com/SyntaxHighlighter/
+ http://alexgorbatchev.com/SyntaxHighlighter/
 			
 Ruby [v2.0.0] (x64-mingw32)
 Ruby on Rails [v4.1.6]
