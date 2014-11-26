@@ -32,7 +32,7 @@
   
   <div class="form-group">
     <div class="text-left">
-      <%= f.label "プログラム", class: "col-sm-1 control-label" %>
+      <%= f.label "プログラム（※Ruby/Ruby on Railsのみ適用）", class: "col-sm-4 control-label" %>
     </div>
     <%= f.text_area :program, class:'form-control', size: "x8" %>
   </div>
@@ -40,7 +40,7 @@
   
   <div class="form-group">
     <div class="text-left">
-      <%= f.label "参考URL・参考書籍等", class: "col-sm-2 control-label" %>
+      <%= f.label "参考URL・参考書籍等(※参照時に改行は排除されます)", class: "col-sm-4 control-label" %>
     </div>
     <%= f.text_area :reference, class:'form-control', size: "x3" %>
   </div>
