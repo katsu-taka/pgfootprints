@@ -17,11 +17,11 @@ group :development do
   gem 'pry-debugger'
   gem 'pry-byebug'
   gem 'pry-doc'
-  gem 'simple_form'
 end
   
 group :development,:production do
   # ページネーション
+  gem 'simple_form'
   gem 'kaminari', '~> 0.15.1'
   gem 'kaminari-bootstrap', '~> 3.0.1'
   
