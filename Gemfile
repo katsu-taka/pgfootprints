@@ -11,20 +11,20 @@ end
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
-  gem 'debugger'
+  # gem 'debugger'
   gem 'pry'
   gem 'pry-rails'
-  gem 'pry-debugger'
+  # gem 'pry-debugger'
   gem 'pry-byebug'
   gem 'pry-doc'
 end
-  
+
 group :development,:production do
   # ページネーション
   gem 'simple_form'
   gem 'kaminari', '~> 0.15.1'
   gem 'kaminari-bootstrap', '~> 3.0.1'
-  
+
   # Bootstrap
   gem 'bootstrap-sass', '2.3.2.0'
   gem 'syntax-highlighter-rails', '~> 3.0.83.1.1'
@@ -65,4 +65,6 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 # gem 'debugger', group: [:development, :test]
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
+# gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
+
+gem 'tzinfo-data', platforms: [:mingw, :mswin]
